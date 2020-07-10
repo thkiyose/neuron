@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: neuron_development
+
+
+test:
+  <<: *default
+  database: neuron_test
+
+production:
+  <<: *default
+  database: neuron_production
+  username: neuron
+  password: <%= ENV['NEURON_DATABASE_PASSWORD'] %>
