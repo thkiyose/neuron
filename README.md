@@ -32,23 +32,23 @@ postやqueを使って情報を発信・収集し、それをmap上で図式化�
 - AWS(EC2,S3)
 
 ## 機能一覧
--アカウント登録機能
-  -氏名、メールアドレス、パスワードを使用
--ログイン・ログアウト機能
--ゲストログイン機能
--プロフィール作成機能
-  -ID・表示名・プロフィールが登録可能
--post機能
--que機能
--map機能
--フォロー機能
--お気に入り機能
--コメント機能
--検索機能
--メッセージ機能
--リンク機能
--通知機能
--管理機能
+- アカウント登録機能
+  - 氏名、メールアドレス、パスワードを使用
+- ログイン・ログアウト機能
+- ゲストログイン機能
+- プロフィール作成機能
+  - ID・表示名・プロフィールが登録可能
+- post機能
+- que機能
+- map機能
+- フォロー機能
+- お気に入り機能
+- コメント機能
+- 検索機能
+- メッセージ機能
+- リンク機能
+- 通知機能
+- 管理機能
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=0
@@ -65,7 +65,7 @@ https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY2
 ## ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=1246398221
 
-##使用予定Gem
+## 使用予定Gem
 ransak
 mini_magik
 devise
