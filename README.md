@@ -66,11 +66,11 @@ https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY2
 https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=1246398221
 
 ## 使用予定Gem
-ransak
-mini_magik
-devise
-letter_opener_web
-pundit
-kaminari
-slim-rails
-public_uid
+- ransak
+- mini_magik
+- devise
+- letter_opener_web
+- pundit
+- kaminari
+- slim-rails
+- public_uid
