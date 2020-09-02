@@ -51,19 +51,19 @@ postやqueを使って情報を発信・収集し、それをmap上で図式化�
 - 管理機能
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=0
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_HItL3TKOxXnaYs4iP0PqUh3RsVLCP6kwW4sVVccpcblpFS-cxZD33Lds5ex3Xa7MMKmIixltlG0r/pubhtml?gid=0&single=true
 
 ## テーブル定義書
-https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=845166345
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_HItL3TKOxXnaYs4iP0PqUh3RsVLCP6kwW4sVVccpcblpFS-cxZD33Lds5ex3Xa7MMKmIixltlG0r/pubhtml?gid=845166345&single=true
 
 ## ER図
-https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=1559826394
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_HItL3TKOxXnaYs4iP0PqUh3RsVLCP6kwW4sVVccpcblpFS-cxZD33Lds5ex3Xa7MMKmIixltlG0r/pubhtml?gid=1559826394&single=true
 
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=1674423056
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_HItL3TKOxXnaYs4iP0PqUh3RsVLCP6kwW4sVVccpcblpFS-cxZD33Lds5ex3Xa7MMKmIixltlG0r/pubhtml?gid=1674423056&single=true
 
 ## ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1WPLuB8CDrkfopvTyzmv8dLDOql8MCEj_4K-iczY23MQ/edit#gid=1246398221
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRTamouc98XEhGfib4Rr9qgjaedyu_U5_Kvl8QRE4oXoPjLgvie4BK_gli3M-HC6ysAzMEG-kpNmZq5/pubhtml
 
 ## 使用予定Gem
 - ransak
