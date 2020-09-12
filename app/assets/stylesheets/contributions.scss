@@ -1,0 +1,134 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: rgb(96, 204, 197);
+  height: 50px;
+  width: 100%;
+  display: table;
+  position: fixed;
+  z-index: 99;
+  opacity: 0.9;
+}
+
+#header_logo {
+  margin: 0px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.button {
+  color: white;
+  background-color: rgb(96, 204, 197);
+  padding: 15px;
+  border-radius: 15px;
+  opacity: 0.8;
+}
+
+.button:hover {
+  opacity: 1.0;
+}
+
+.top_wrapper {
+  background-color: rgb(230, 230, 230);
+  height: 100%;
+  padding: 50px 0px 100px 0px;
+}
+
+.introduction {
+  height: 600px;
+  background-image: url("/assets/top_picture.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.links {
+  padding-top: 50px;
+}
+
+.top_links_pic {
+  display: inline-block;
+  height: 100px;
+}
+
+.links h3 {
+  color: rgb(92, 92, 92);
+  padding: 20px 0px 50px 0px;
+}
+
+.links p {
+  color: rgb(138, 138, 138);
+  padding-top: 20px;
+  font-size: 0.8rem;
+}
+
+.top_login {
+  float: left;
+  width: 49%;
+  text-align: center;
+}
+
+.top_news {
+  float: right;
+  width: 50%;
+  border-left: solid 1px rgb(138, 138, 138);
+  text-align: center;
+}
+
+#top_copy {
+  color: white;
+  width: 70%;
+  text-align: center;
+  font-size: 3rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+
+#introduction_button {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+
+footer {
+  background-color: rgb(56, 125, 120);
+  color: white;
+  text-align: center;
+  height: 50px;
+}
+
+#footer_print {
+  margin: 0px;
+  padding: 10px 0px;
+}

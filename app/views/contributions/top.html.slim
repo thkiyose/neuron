@@ -1,0 +1,21 @@
+.top_wrapper
+  .introduction
+    h1#top_copy
+      | 人を知り、自分を知る。
+    = link_to "neuronって？","#", class:"button", id:"introduction_button"
+  .links.clearfix
+    .top_login
+      img.top_links_pic src="/assets/top_login_pic.png"
+      h3
+        | アカウントをお持ちの方はこちらからログイン
+      = link_to "ログイン", "#", class:"button", id:"top_login_button"
+      p
+        | アカウントを作成していない方は
+        = link_to "サインアップ", "#"
+    .top_news
+      img.top_links_pic src="/assets/top_news_pic.png"
+      h3
+        | まずは最新の話題を見てみましょう。
+      = link_to "新着投稿を見る", "#", class:"button", id:"top_login_button"
+      p
+        | 閲覧、queの投票が可能です。
