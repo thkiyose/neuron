@@ -1,5 +1,5 @@
 doctype html
-html
+html class="#{not_to_scroll}"
   head
     title
       | Neuron
@@ -7,7 +7,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+  body class="#{not_to_scroll}"
     header
       p#header_logo
         | neuron
