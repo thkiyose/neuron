@@ -1,5 +1,5 @@
 module UsersHelper
   def is_fixed_footer
-    "fixed"
+    "fixed" if controller.controller_name == "registrations"
   end
 end

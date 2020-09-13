@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "contributions#index"
-  resources :contributions do
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+  resources :contributions, only:%i(show) do
     collection do
       get :top
     end
