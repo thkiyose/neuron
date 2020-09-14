@@ -1,30 +1,25 @@
 .wrapper.not_scroll
   .container
-    h2
-      | Sign up
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "users/shared/error_messages", resource: resource
-      .field
+    h2.container_title
+      | サインアップ
+    .forms
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "users/shared/error_messages", resource: resource
         = f.label :user_name
         br
         = f.text_field :user_name
-      .field
         = f.label :email
         br
         = f.email_field :email, autocomplete: "email"
-      .field
         = f.label :password
         - if @minimum_password_length
-          em
             | (
             = @minimum_password_length
             |  characters minimum)
         br
         = f.password_field :password, autocomplete: "new-password"
-      .field
         = f.label :password_confirmation
-        br
         = f.password_field :password_confirmation, autocomplete: "new-password"
-      .actions
-        = f.submit "Sign up"
+        .submit_button
+          = f.submit "アカウントを作成する"
     = render "users/shared/links"
