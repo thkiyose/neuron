@@ -3,11 +3,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def new
-    super
+    @user = User.new
   end
 
   def create
     super
+    resource.build_profile
+    resource.profile.introduction = ""
+    resource.save
   end
 
   # GET /resource/edit
