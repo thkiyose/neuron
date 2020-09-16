@@ -11,6 +11,9 @@ html class="#{not_to_scroll}"
     header
       p#header_logo
         | neuron
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
     = yield
     footer class="#{is_fixed_footer}"
       p#footer_print

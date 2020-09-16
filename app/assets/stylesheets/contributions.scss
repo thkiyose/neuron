@@ -35,6 +35,17 @@ header {
   padding-left: 20px;
 }
 
+.notifications {
+  position: absolute;
+  top: 50px;
+  height: 10px;
+  text-align: center;
+}
+
+.alert {
+  background-color: rgb(255, 121, 97);
+}
+
 .clearfix::after {
   content: "";
   display: block;
