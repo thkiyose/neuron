@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_073541) do
+ActiveRecord::Schema.define(version: 2020_09_17_083121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_09_17_073541) do
   create_table "contributions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_073541) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "contributions", "users"
   add_foreign_key "posts", "contributions"
   add_foreign_key "profiles", "users"
 end
