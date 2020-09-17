@@ -35,6 +35,23 @@ header {
   padding-left: 20px;
 }
 
+.notifications {
+  position: absolute;
+  top: 50px;
+  height: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.alert {
+  background-color: rgb(255, 121, 97);
+}
+
+.notice {
+  background-color: rgb(44, 231, 130);
+}
+
 .clearfix::after {
   content: "";
   display: block;
@@ -53,10 +70,14 @@ header {
   opacity: 1.0;
 }
 
-.top_wrapper {
+.wrapper {
   background-color: rgb(230, 230, 230);
-  height: 100%;
+  min-height: 100%;
   padding: 50px 0px 100px 0px;
+}
+
+.not_scroll {
+  overflow: hidden;
 }
 
 .introduction {
@@ -126,6 +147,12 @@ footer {
   color: white;
   text-align: center;
   height: 50px;
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
 }
 
 #footer_print {

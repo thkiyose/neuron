@@ -1,4 +1,4 @@
-.top_wrapper
+.wrapper
   .introduction
     h1#top_copy
       | 人を知り、自分を知る。
@@ -8,10 +8,10 @@
       img.top_links_pic src="/assets/top_login_pic.png"
       h3
         | アカウントをお持ちの方はこちらからログイン
-      = link_to "ログイン", "#", class:"button", id:"top_login_button"
+      = link_to "ログイン", new_user_session_path, class:"button", id:"top_login_button"
       p
         | アカウントを作成していない方は
-        = link_to "サインアップ", "#"
+        = link_to "サインアップ", new_user_registration_path
     .top_news
       img.top_links_pic src="/assets/top_news_pic.png"
       h3

@@ -1,0 +1,25 @@
+.wrapper.not_scroll
+  .container
+    h2.container_title
+      | サインアップ
+    .forms
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "users/shared/error_messages", resource: resource
+        = f.label :user_name
+        br
+        = f.text_field :user_name
+        = f.label :email
+        br
+        = f.email_field :email, autocomplete: "email"
+        = f.label :password
+        - if @minimum_password_length
+            | (
+            = @minimum_password_length
+            |  characters minimum)
+        br
+        = f.password_field :password, autocomplete: "new-password"
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+        .submit_button
+          = f.submit "アカウントを作成する"
+    = render "users/shared/links"

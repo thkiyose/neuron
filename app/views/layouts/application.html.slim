@@ -1,5 +1,5 @@
 doctype html
-html
+html class="#{not_to_scroll}"
   head
     title
       | Neuron
@@ -7,11 +7,18 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+  body class="#{not_to_scroll}"
     header
       p#header_logo
         | neuron
+      ul.header_menu
+        - if user_signed_in?
+          li
+            = link_to "home", root_path
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
     = yield
-    footer
+    footer class="#{is_fixed_footer}"
       p#footer_print
         | 2020 Haruka Tezuka
