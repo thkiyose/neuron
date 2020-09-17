@@ -6,13 +6,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
     user = current_user
-    user.build_contribution
+    contribution = user.build_contribution
+    post = contribution.build_post
     if post.save
       redirect_to root_path
     else
       render "contributions/index"
-    enddocke
   end
 end
