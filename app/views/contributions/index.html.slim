@@ -2,8 +2,12 @@
   .side_menu
     p
       | ログイン中
-      = current_user.user_name
+      = current_user.profile.screen_name
     = link_to "ログアウト", destroy_user_session_path, method: :delete
   .timeline
     - @contributions.each do |contribution|
-      = contribution.post.content
+      .contribution
+        | 投稿者：
+        = contribution.user.profile.screen_name
+        | 内容：
+        = contribution.post.content
