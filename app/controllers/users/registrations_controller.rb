@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     resource.build_profile
     resource.profile.introduction = ""
-    resource.save
+    resource.save!
   end
 
   # GET /resource/edit
