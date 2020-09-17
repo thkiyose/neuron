@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     resource.build_profile
-    resource.profile.introduction = ""
     resource.save!
   end
 
