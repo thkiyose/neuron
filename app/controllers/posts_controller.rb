@@ -2,11 +2,16 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    user = current_user
-    contribution = user.contributions.build
+    @user = current_user
+    contribution = @user.contributions.build
     post = contribution.build_post(post_params)
-    post.save
-    redirect_to root_path
+    respond_to do |format|
+      if post.save
+        format.js { render :create }
+      else
+        format.html { redirect_to root_path, alert: "投稿に失敗しました。"}
+      end
+    end
   end
 
   private
