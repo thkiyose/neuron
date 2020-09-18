@@ -4,6 +4,10 @@
       | ログイン中
       = current_user.profile.screen_name
     = link_to "ログアウト", destroy_user_session_path, method: :delete
+  .contribution_form
+    = form_with(model:@post,local:true, url:posts_path) do |f|
+      = f.text_area :content
+      = f.submit "送信"
   .timeline
     - @contributions.each do |contribution|
       .contribution

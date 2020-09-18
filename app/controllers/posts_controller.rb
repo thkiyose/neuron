@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @post = Post.new
-  end
-
   def create
     user = current_user
-    contribution = user.build_contribution
-    post = contribution.build_post
-    if post.save
-      redirect_to root_path
-    else
-      render "contributions/index"
+    contribution = user.contributions.build
+    post = contribution.build_post(post_params)
+    post.save
+    redirect_to root_path
   end
+
+  private
+    def post_params
+      params.require(:post).permit(:content)
+    end
+
 end

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get :top
     end
   end
+  resources :posts, only:%i(create)
 end
