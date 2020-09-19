@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         @msg = "postを投稿しました。"
         format.js { render :create }
       else
-        format.html { redirect_to root_path, alert: "投稿に失敗しました" }
+        format.js { render :create }
       end
     end
   end
