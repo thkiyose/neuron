@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     post = contribution.build_post(post_params)
     respond_to do |format|
       if post.save
-        @msg = "postを投稿しました。"
         format.js { render :create }
       else
         format.js { render :create }

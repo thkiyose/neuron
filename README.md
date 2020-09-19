@@ -65,6 +65,21 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_HItL3TKOxXnaYs4iP0PqUh3RsVLCP
 ## ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRTamouc98XEhGfib4Rr9qgjaedyu_U5_Kvl8QRE4oXoPjLgvie4BK_gli3M-HC6ysAzMEG-kpNmZq5/pubhtml
 
+## 環境構築/起動方法
+1. Dockerを公式サイトよりダウンロード・インストールします。
+
+2. 以下のコマンドを実行します。
+```
+$ git clone https://github.com/thkiyose/neuron.git
+$ cd neuron
+$ docker-compose up -d
+```
+
+3. ブラウザにて以下のディレクトリにアクセスします。
+```
+localhost:3000
+```
+
 ## 使用予定Gem
 - ransak
 - mini_magik
