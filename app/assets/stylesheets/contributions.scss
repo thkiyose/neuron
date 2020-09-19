@@ -149,10 +149,16 @@ header {
   background-color: rgb(230, 230, 230);
 }
 
-.timeline {
+#timeline {
   height: 100%;
   width: 80%;
   float: right;
+}
+
+#contribution_form {
+  width: 80%;
+  float: right;
+  padding-top: 50px;
 }
 
 .contribution {
