@@ -3,4 +3,5 @@ class User < ApplicationRecord
          :recoverable, :validatable
   validates :user_name, presence: true, length: { maximum: 20 }
   has_one :profile, dependent: :destroy
+  has_many :contributions, dependent: :destroy
 end
