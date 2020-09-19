@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :top
       get :home
+      get :news
     end
   end
   resources :posts, only:%i(create)

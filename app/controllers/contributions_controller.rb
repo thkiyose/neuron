@@ -8,4 +8,8 @@ class ContributionsController < ApplicationController
     @contributions = Contribution.all
   end
 
+  def news
+    @contributions = Contribution.all
+  end
+
 end

@@ -1,0 +1,9 @@
+.wrapper.clearfix
+  - if user_signed_in?
+    .side_menu
+      p
+        | ログイン中
+        = current_user.profile.screen_name
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+  #timeline
+    = render partial: "contributions/index", locals: { contributions: @contributions }
