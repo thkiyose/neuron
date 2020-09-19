@@ -1,0 +1,8 @@
+= form_with(model: post,remote: true, url:posts_path) do |f|
+  - if post.errors.any?
+    .error_explanation
+      - post.errors.full_messages.each do |message|
+        li
+          = message
+  = f.text_area :content
+  = f.submit "送信"
