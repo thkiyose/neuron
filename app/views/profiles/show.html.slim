@@ -1,7 +1,9 @@
 .wrapper
   h2
     | ユーザープロフィール
-  = link_to "編集", edit_profile_path(@profile.id)
+  - if user_signed_in? && current_user.id == @profile.user.id
+    p
+      = link_to "編集", edit_profile_path(@profile.id)
   p
     | ユーザー名：
     = @profile.screen_name

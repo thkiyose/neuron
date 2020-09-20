@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+      redirect_to profile_path(@profile.user.id) unless user_signed_in? && current_user.id == @profile.user.id
   end
 
   def update
