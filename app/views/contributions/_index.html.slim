@@ -1,6 +1,6 @@
 - contributions.each do |contribution|
   .contribution
     | 投稿者：
-    = contribution.user.profile.screen_name
+    = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.id)
     | 内容：
     = contribution.post.content

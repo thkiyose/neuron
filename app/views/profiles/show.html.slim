@@ -1,0 +1,13 @@
+.wrapper
+  .container
+    h2
+      | ユーザープロフィール
+    = link_to "編集", edit_profile_path(@user.id)
+    p
+      | ユーザー名：
+      = @profile.screen_name
+    p
+      | 利用開始：
+      = @user.created_at
+    p
+      = @profile.introduction
