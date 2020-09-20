@@ -15,7 +15,7 @@ html class="#{not_to_scroll}"
         - if user_signed_in?
           li
             = link_to "home", root_path
-        - unless controller.action_name == "top"
+        - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
           li
             = link_to "new", news_contributions_path
     .notifications
