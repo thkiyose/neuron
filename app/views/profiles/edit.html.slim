@@ -1,0 +1,20 @@
+.wrapper
+  h2
+    | ユーザープロフィール
+  = form_with(model:@profile, local:true) do |f|
+    .error_explanation
+      ul
+        - if @profile.errors.any?
+          - @profile.errors.full_messages.each do |message|
+            li
+              = message
+    p
+      = f.label :screen_name
+      | (最大20字)
+      = f.text_field :screen_name
+    p
+      = f.label :introduction
+      | (最大300字)
+      = f.text_area :introduction
+    p
+      = f.submit "プロフィール更新"

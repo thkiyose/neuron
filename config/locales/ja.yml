@@ -16,6 +16,9 @@ ja:
         admin: 管理者権限
       post:
         content: 内容
+      profile:
+        screen_name: 公開ユーザー名
+        introduction: 自己紹介
 
   date:
     abbr_day_names:
