@@ -18,6 +18,7 @@ gem 'devise-i18n'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'jquery-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
