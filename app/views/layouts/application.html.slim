@@ -18,6 +18,10 @@ html class="#{not_to_scroll}"
         - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
           li
             = link_to "new", news_contributions_path
+      #header_search_form
+        = search_form_for @search, url: news_contributions_path do |f|
+          = f.text_field :post_content_cont, placeholder: "検索するテキストを入力"
+          = f.submit "検索"
     .notifications
       - flash.each do |key, value|
         = content_tag(:div, value, class: key)
