@@ -1,6 +1,6 @@
-= form_with(model: post,remote: true, url:posts_path) do |f|
+= form_with(model:post,remote: true, url:posts_path) do |f|
   - if post.errors.any?
-    .error_explanation
+    #error_explanation
       - post.errors.full_messages.each do |message|
         li
           = message

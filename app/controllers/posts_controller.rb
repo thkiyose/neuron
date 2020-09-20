@@ -3,13 +3,11 @@ class PostsController < ApplicationController
 
   def create
     @user = current_user
-    contribution = @user.contributions.build
-    post = contribution.build_post(post_params)
+    @contribution = @user.contributions.build
+    @post = @contribution.build_post(post_params)
     respond_to do |format|
-      if post.save
-        format.js { render :create }
-      else
-        format.js { render :create }
+      if @post.save
+        format.js { render :index }
       end
     end
   end
