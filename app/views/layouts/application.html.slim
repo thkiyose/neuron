@@ -15,8 +15,9 @@ html class="#{not_to_scroll}"
         - if user_signed_in?
           li
             = link_to "home", root_path
-        li
-          = link_to "new", news_contributions_path
+        - unless controller.action_name == "top"
+          li
+            = link_to "new", news_contributions_path
     .notifications
       - flash.each do |key, value|
         = content_tag(:div, value, class: key)
