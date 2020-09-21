@@ -32,7 +32,23 @@ header {
   font-weight: bold;
   display: table-cell;
   vertical-align: middle;
-  padding-left: 20px;
+  padding: 0px 0px 0px 20px;
+}
+
+.header_menu {
+  margin: 0;
+  padding: 15px 0px;
+  float: left;
+}
+
+.header_menu li {
+  float: left;
+  padding-right: 30px;
+}
+
+#header_search_form {
+  float: right;
+  padding: 15px 15px 0px 0px;
 }
 
 .notifications {
@@ -72,7 +88,7 @@ header {
 
 .wrapper {
   background-color: rgb(230, 230, 230);
-  height: 100%;
+  min-height: 100%;
   padding: 50px 0px 100px 0px;
 }
 
@@ -147,6 +163,7 @@ header {
   width: 20%;
   float: left;
   background-color: rgb(230, 230, 230);
+  padding-top: 80px;
 }
 
 #timeline {
@@ -155,14 +172,19 @@ header {
   float: right;
 }
 
+.post {
+  background-color: white;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+  border-radius: 15px;
+}
+
 #contribution_form {
   width: 80%;
   float: right;
   padding-top: 50px;
-}
-
-.contribution {
-  border-bottom: solid 1px black;
+  text-align: center;
 }
 
 footer {

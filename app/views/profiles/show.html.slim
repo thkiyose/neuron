@@ -1,0 +1,14 @@
+.wrapper
+  h2
+    | ユーザープロフィール
+  - if user_signed_in? && current_user.id == @profile.user.id
+    p
+      = link_to "編集", edit_profile_path(@profile.id)
+  p
+    | ユーザー名：
+    = @profile.screen_name
+  p
+    | 利用開始：
+    = @profile.user.created_at
+  p
+    = @profile.introduction

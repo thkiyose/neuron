@@ -8,18 +8,29 @@ html class="#{not_to_scroll}"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body class="#{not_to_scroll}"
-    header
+    header.clearfix
       p#header_logo
         | neuron
       ul.header_menu
         - if user_signed_in?
           li
             = link_to "home", root_path
-        li
-          = link_to "new", news_contributions_path
+        - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
+          li
+            = link_to "new", news_contributions_path
+      #header_search_form
+        = search_form_for @search, url: news_contributions_path do |f|
+          = f.text_field :post_content_cont, placeholder: "検索するテキストを入力"
+          = f.submit "検索"
     .notifications
       - flash.each do |key, value|
         = content_tag(:div, value, class: key)
+    - if side_menu_display?
+      .side_menu
+        p
+          | ログイン中:
+          = link_to "#{current_user.profile.screen_name}" , profile_path(current_user.profile.id)
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
     footer class="#{is_fixed_footer}"
       p#footer_print

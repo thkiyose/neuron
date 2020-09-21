@@ -3,13 +3,15 @@ class ContributionsController < ApplicationController
   end
 
   def home
-    redirect_to top_contributions_path unless user_signed_in?
-    @post = Post.new
-    @contributions = Contribution.all
+    unless user_signed_in?
+      redirect_to top_contributions_path
+    else
+      @post = Post.new
+      @contributions = Contribution.all.includes(:post,user: :profile).home_contributions(current_user.id).order(created_at: :desc)
+    end
   end
 
   def news
-    @contributions = Contribution.all
   end
 
 end
