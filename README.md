@@ -72,6 +72,9 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRTamouc98XEhGfib4Rr9qgjaedyu_U5
 ```
 $ git clone https://github.com/thkiyose/neuron.git
 $ cd neuron
+$ docker-compose build
+$ docker-compose run web rake db:create
+$ docker-compose run web rake db:migrate
 $ docker-compose up -d
 ```
 
