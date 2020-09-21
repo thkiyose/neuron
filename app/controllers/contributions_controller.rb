@@ -7,12 +7,11 @@ class ContributionsController < ApplicationController
       redirect_to top_contributions_path
     else
       @post = Post.new
-      @contributions = Contribution.all.includes(:user,:post).home_contributions(current_user.id)
+      @contributions = Contribution.all.includes(:post,user: :profile).home_contributions(current_user.id).order(created_at: :desc)
     end
   end
 
   def news
-    @contributions = Contribution.all.includes(:user,:post)
   end
 
 end

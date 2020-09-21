@@ -1,6 +1,10 @@
 - contributions.each do |contribution|
-  .contribution
-    | 投稿者：
-    = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
-    | 内容：
-    = contribution.post.content
+  .post
+    p.post_user_name
+      | 投稿者　
+      = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
+    p.post_content
+      = contribution.post.content
+    p.post_info
+      | 投稿日時　
+      = contribution.created_at.strftime('%Y/%m/%d %H:%M')

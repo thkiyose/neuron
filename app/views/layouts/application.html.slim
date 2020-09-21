@@ -8,7 +8,7 @@ html class="#{not_to_scroll}"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body class="#{not_to_scroll}"
-    header
+    header.clearfix
       p#header_logo
         | neuron
       ul.header_menu
