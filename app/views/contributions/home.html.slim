@@ -1,9 +1,4 @@
 .wrapper.clearfix
-  .side_menu
-    p
-      | ログイン中:
-      = link_to "#{current_user.profile.screen_name}" , profile_path(current_user.profile.id)
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
   #contribution_form
     = render partial: "posts/form", locals: { post: @post }
   #timeline

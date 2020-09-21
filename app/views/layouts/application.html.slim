@@ -25,6 +25,12 @@ html class="#{not_to_scroll}"
     .notifications
       - flash.each do |key, value|
         = content_tag(:div, value, class: key)
+    - if side_menu_display?
+      .side_menu
+        p
+          | ログイン中:
+          = link_to "#{current_user.profile.screen_name}" , profile_path(current_user.profile.id)
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
     footer class="#{is_fixed_footer}"
       p#footer_print

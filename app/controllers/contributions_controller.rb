@@ -12,7 +12,7 @@ class ContributionsController < ApplicationController
   end
 
   def news
-    @contributions = Contribution.all
+    @contributions = Contribution.all.includes(:user,:post)
   end
 
 end
