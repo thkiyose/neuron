@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_relations/create'
+  get 'user_relations/destroy'
   root to: "contributions#home"
   devise_for :users, controllers: {
     registrations: "users/registrations",
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
   end
   resources :posts, only:%i(create)
   resources :profiles, only:%i(show edit update)
+  resources :user_relations, only: %i(create destroy)
 end
