@@ -1,0 +1,7 @@
+.wrapper
+  - @user.following.each do |following|
+    .user_list
+      p.user_name
+        = link_to "#{following.profile.screen_name}", profile_path(following.profile.id)
+      p.user_introduction
+        = following.profile.introduction

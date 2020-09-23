@@ -15,5 +15,10 @@ Rails.application.routes.draw do
   end
   resources :posts, only:%i(create)
   resources :profiles, only:%i(show edit update)
-  resources :user_relations, only: %i(create destroy)
+  resources :user_relations, only: %i(create destroy) do
+    member do
+      get :show_following
+      get :show_followers
+    end
+  end
 end

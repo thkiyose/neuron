@@ -1,2 +1,2 @@
 span#following_count
-  = user.following.count
+  = link_to "#{user.following.count}", show_following_user_relation_path(user.id)
