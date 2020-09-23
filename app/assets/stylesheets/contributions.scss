@@ -82,6 +82,18 @@ header {
   opacity: 0.8;
 }
 
+.logout_button {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 30%;
+}
+
+.button a {
+  color: white;
+  font-size: 0.9rem;
+}
+
 .button:hover {
   opacity: 1.0;
 }
@@ -164,6 +176,26 @@ header {
   float: left;
   background-color: rgb(230, 230, 230);
   padding-top: 80px;
+  position: fixed;
+  z-index: 50;
+  text-align: center;
+}
+#current_user_screen_name {
+  font-size: 1.2rem;
+}
+#now_login {
+  display: inline-block;
+  color: white;
+  background-color: rgb(96, 204, 197);
+  padding: 8px;
+  border-radius: 15px;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+#side_menu_menu {
+  padding: 0px;
+  margin-top: 10px;
 }
 
 #timeline {
@@ -193,6 +225,8 @@ footer {
   text-align: center;
   height: 50px;
   width: 100%;
+  position:sticky;
+  z-index: 98;
 }
 
 .fixed {
