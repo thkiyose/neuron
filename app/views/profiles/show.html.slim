@@ -7,6 +7,8 @@
   p
     | ユーザー名：
     = @profile.screen_name
+  - if user_signed_in? && current_user != @profile.user
+    = render partial: "user_relations/follow_button", locals: { user: @profile.user }
   p
     | 利用開始：
     = @profile.user.created_at

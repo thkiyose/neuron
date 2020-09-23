@@ -1,6 +1,6 @@
 class UserRelationsController < ApplicationController
   before_action :authenticate_user!
-  redpond_to? :js
+  respond_to? :js
 
   def create
     @user = User.find(params[:user_relation][:followed_id])
@@ -8,7 +8,7 @@ class UserRelationsController < ApplicationController
   end
 
   def destroy
-    @user = User_relation.find(params[:id]).followed
+    @user = UserRelation.find(params[:id]).followed
     current_user.unfollow!(@user)
   end
 end
