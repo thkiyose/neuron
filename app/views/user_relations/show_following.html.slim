@@ -1,6 +1,8 @@
-.wrapper
+.wrapper.clearfix
   - @user.following.each do |following|
     .user_list
+      h2
+        |フォローしているユーザー
       p.user_name
         = link_to "#{following.profile.screen_name}", profile_path(following.profile.id)
       p.user_introduction

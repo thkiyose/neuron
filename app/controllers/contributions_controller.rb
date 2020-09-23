@@ -7,7 +7,7 @@ class ContributionsController < ApplicationController
       redirect_to top_contributions_path
     else
       @post = Post.new
-      @contributions = Contribution.all.includes(:post,user: :profile).self_contributions(current_user.id).order(created_at: :desc)
+      @contributions = Contribution.all.includes(:post, [user: [:profile, :favorites]]).self_contributions(current_user.id).order(created_at: :desc)
     end
   end
 

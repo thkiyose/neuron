@@ -13,4 +13,12 @@ class FavoritesController < ApplicationController
     @contribution = Contribution.find(favorite.contribution_id)
     favorite.destroy
   end
+
+  def show_favorites
+    @favorite_contributions = User.find(params[:id]).favorite_contributions
+  end
+
+  def show_favorited_by
+    @favorite_users = Contribution.find(params[:id]).favorite_users
+  end
 end

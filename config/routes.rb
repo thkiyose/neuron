@@ -19,5 +19,10 @@ Rails.application.routes.draw do
       get :show_followers
     end
   end
-  resources :favorites, only: %i(create destroy)
+  resources :favorites, only: %i(create destroy) do
+    member do
+      get :show_favorites
+      get :show_favorited_by
+    end
+  end
 end

@@ -1,0 +1,9 @@
+.wrapper.clearfix
+  - @favorite_users.each do |user|
+    .user_list
+      h2
+        |この投稿をお気に入りしたユーザー
+      p.user_name
+        = link_to "#{user.profile.screen_name}", profile_path(user.profile.id)
+      p.user_introduction
+        = user.profile.introduction

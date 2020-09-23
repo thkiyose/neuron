@@ -6,3 +6,7 @@ div id="favorites_button_#{contribution.id}"
   - else
     = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
       = f.submit "お気に入り解除"
+  #favorites_count
+    = link_to(show_favorited_by_favorite_path(contribution.id)) do
+      = contribution.favorite_users.count
+      | 人のユーザーがお気に入りしました
