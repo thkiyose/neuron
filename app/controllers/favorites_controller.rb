@@ -9,5 +9,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    favorite = current_user.favorites.find_by(id: params[:id])
+    @contribution = Contribution.find(favorite.contribution_id)
+    favorite.destroy
   end
 end
