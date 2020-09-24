@@ -8,6 +8,11 @@
     p.post_info
       | 投稿日時　
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
+    .comments
+      div class="show_comments_#{contribution.id}"
+        = render partial: "comments/index", locals: { comments: contribution.comments }
+      div id="comment_form_#{contribution.id}"
+        = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
     ul.post_menu
       li
         = render partial: "favorites/favorites_button", locals: {contribution: contribution}
