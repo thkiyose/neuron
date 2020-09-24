@@ -14,4 +14,12 @@ class ContributionsController < ApplicationController
   def news
   end
 
+  def destroy
+    @contribution = Contribution.find(params[:id])
+    @contribution.destroy
+    respond_to do |format|
+      format.js { render :destroy }
+    end
+  end
+
 end
