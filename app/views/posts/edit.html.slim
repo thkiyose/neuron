@@ -10,3 +10,5 @@
               = message
       = f.text_area :content
       = f.submit "送信"
+    .button.delete_button
+      = link_to "投稿を削除", contribution_path(@post.contribution.id), method: :delete

@@ -15,11 +15,10 @@ class ContributionsController < ApplicationController
   end
 
   def destroy
+    authenticate_user!
     @contribution = Contribution.find(params[:id])
     @contribution.destroy
-    respond_to do |format|
-      format.js { render :destroy }
-    end
+    redirect_to root_path, notice: "投稿を削除しました。"
   end
 
   private
