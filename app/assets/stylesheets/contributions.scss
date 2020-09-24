@@ -217,6 +217,16 @@ header {
   float: right;
   padding-top: 50px;
   text-align: center;
+  resize: none;
+}
+
+#contribution_form textarea {
+  width: 70%;
+  height: 100px;
+  border: solid 2px rgb(96, 204, 197);
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0 auto;
 }
 
 footer {
