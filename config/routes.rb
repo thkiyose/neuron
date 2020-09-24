@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
   resources :contributions, only:%i(destroy show) do
+    resources :comments, only: %i(create)
     collection do
       get :top
       get :home
