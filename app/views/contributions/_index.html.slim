@@ -19,3 +19,10 @@
       - if user_signed_in? && current_user.id == contribution.user.id
         li
           = link_to "編集", edit_post_path(contribution.post.id)
+    .comments_open
+      p
+        | コメント：
+        = contribution.comments.count
+        | 件
+        span#open_message
+          | ▼表示する
