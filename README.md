@@ -82,10 +82,9 @@ localhost:3000
 
 ## 使用予定Gem
 - ransak
-- mini_magik
 - devise
 - letter_opener_web
-- pundit
+- rails-admin
 - kaminari
 - slim-rails
 - public_uid

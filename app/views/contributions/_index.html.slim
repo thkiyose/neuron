@@ -11,5 +11,6 @@
     ul.post_menu
       li
         = render partial: "favorites/favorites_button", locals: {contribution: contribution}
-      li
-        = link_to "編集", edit_post_path(contribution.post.id)
+      - if user_signed_in? && current_user.id == contribution.user.id
+        li
+          = link_to "編集", edit_post_path(contribution.post.id)

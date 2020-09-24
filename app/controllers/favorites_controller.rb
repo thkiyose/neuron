@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
 
   def create
     @contribution = Contribution.find(params[:favorite][:contribution_id])
-    flash[:notice] = "投稿をお気に入りしました。"
     favorite = current_user.favorites.create(contribution_id: @contribution.id)
   end
 
