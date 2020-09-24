@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  resources :contributions, only:%i(show) do
+  resources :contributions, only:%i(edit update destroy show) do
     collection do
       get :top
       get :home
