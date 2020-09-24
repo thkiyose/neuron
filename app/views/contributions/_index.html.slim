@@ -11,7 +11,7 @@
     .comments
       div class="show_comments_#{contribution.id}"
         = render partial: "comments/index", locals: { comments: contribution.comments }
-      div id="comment_form_#{contribution.id}"
+      div id="comment_form"
         = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
     ul.post_menu
       li

@@ -1,5 +1,11 @@
+p.comment_starts
+  | コメント
 ul
   - comments.each do |comment|
-      li
-        p
+      li.each_comment
+        p.comment_user_name
+          = link_to "#{comment.user.profile.screen_name}", profile_path(comment.user.profile.id)
+        p.comment_content
           = comment.content
+        p.comment_date
+          = comment.created_at.strftime('%Y/%m/%d %H:%M')
