@@ -1,0 +1,5 @@
+.wrapper.clearfix
+  #timeline
+    h2
+      |お気に入りした投稿
+    = render partial: "contributions/index", locals: {contributions: @favorite_contributions}

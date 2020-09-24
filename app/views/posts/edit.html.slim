@@ -1,0 +1,14 @@
+.wrapper
+  #contribution_form
+    h2
+      | post編集
+    = form_with(model:@post,local:true) do |f|
+      - if @post.errors.any?
+        #error_explanation
+          - @post.errors.full_messages.each do |message|
+            li
+              = message
+      = f.text_area :content
+      = f.submit "送信"
+    .button.delete_button
+      = link_to "投稿を削除", contribution_path(@post.contribution.id), method: :delete

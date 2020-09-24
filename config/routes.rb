@@ -4,13 +4,25 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  resources :contributions, only:%i(show) do
+  resources :contributions, only:%i(destroy show) do
     collection do
       get :top
       get :home
       get :news
     end
   end
-  resources :posts, only:%i(create)
+  resources :posts, only:%i(create edit update)
   resources :profiles, only:%i(show edit update)
+  resources :user_relations, only: %i(create destroy) do
+    member do
+      get :show_following
+      get :show_followers
+    end
+  end
+  resources :favorites, only: %i(create destroy) do
+    member do
+      get :show_favorites
+      get :show_favorited_by
+    end
+  end
 end

@@ -1,0 +1,3 @@
+$("#follow_button_"+"<%= @user.id %>").html("<%= escape_javascript(render partial: 'user_relations/follow_button', locals: { user: @user } ) %>")
+$("#following_count").html("<%= escape_javascript(render partial: 'user_relations/following_count', locals: { user: @user } ) %>")
+$("#followed_count").html("<%= escape_javascript(render partial: 'user_relations/followed_count', locals: { user: @user } ) %>")

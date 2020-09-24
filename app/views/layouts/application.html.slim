@@ -27,9 +27,16 @@ html class="#{not_to_scroll}"
         = content_tag(:div, value, class: key)
     - if side_menu_display?
       .side_menu
-        p
-          | ログイン中:
-          = link_to "#{current_user.profile.screen_name}" , profile_path(current_user.profile.id)
+        p#now_login
+          | ログイン中
+        p#current_user_screen_name
+          = current_user.profile.screen_name
+        ul#side_menu_menu
+          li
+            = link_to "プロフィール" , profile_path(current_user.profile.id)
+          li
+            = link_to "お気に入りした投稿", show_favorites_favorite_path(current_user.id)
+        .button.logout_button
           = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
     footer class="#{is_fixed_footer}"

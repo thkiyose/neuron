@@ -8,3 +8,9 @@
     p.post_info
       | 投稿日時　
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
+    ul.post_menu
+      li
+        = render partial: "favorites/favorites_button", locals: {contribution: contribution}
+      - if user_signed_in? && current_user.id == contribution.user.id
+        li
+          = link_to "編集", edit_post_path(contribution.post.id)

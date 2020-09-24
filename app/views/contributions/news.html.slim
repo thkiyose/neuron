@@ -1,3 +1,6 @@
 .wrapper.clearfix
   #timeline
+    #result_title
+      h2
+        = @title
     = render partial: "contributions/index", locals: { contributions: @searched_contributions }

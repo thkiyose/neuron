@@ -1,0 +1,2 @@
+span#followed_count
+  = link_to "#{user.followers.count}", show_followers_user_relation_path(user.id)

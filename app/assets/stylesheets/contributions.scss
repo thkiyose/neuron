@@ -52,7 +52,7 @@ header {
 }
 
 .notifications {
-  position: absolute;
+  position: fixed;
   top: 50px;
   height: 10px;
   width: 100%;
@@ -80,6 +80,18 @@ header {
   padding: 15px;
   border-radius: 15px;
   opacity: 0.8;
+}
+
+.logout_button {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 30%;
+}
+
+.button a {
+  color: white;
+  font-size: 0.9rem;
 }
 
 .button:hover {
@@ -164,6 +176,26 @@ header {
   float: left;
   background-color: rgb(230, 230, 230);
   padding-top: 80px;
+  position: fixed;
+  z-index: 50;
+  text-align: center;
+}
+#current_user_screen_name {
+  font-size: 1.2rem;
+}
+#now_login {
+  display: inline-block;
+  color: white;
+  background-color: rgb(96, 204, 197);
+  padding: 8px;
+  border-radius: 15px;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+#side_menu_menu {
+  padding: 0px;
+  margin-top: 10px;
 }
 
 #timeline {
@@ -185,6 +217,16 @@ header {
   float: right;
   padding-top: 50px;
   text-align: center;
+  resize: none;
+}
+
+#contribution_form textarea {
+  width: 70%;
+  height: 100px;
+  border: solid 2px rgb(96, 204, 197);
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0 auto;
 }
 
 footer {
@@ -193,6 +235,8 @@ footer {
   text-align: center;
   height: 50px;
   width: 100%;
+  position:sticky;
+  z-index: 98;
 }
 
 .fixed {
