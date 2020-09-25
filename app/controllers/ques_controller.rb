@@ -1,6 +1,6 @@
 class QuesController < ApplicationController
   before_action :authenticate_user!
-  respond_to? :js
+  respond_to? :js, only: %i(new)
 
   def new
     @que = Que.new
@@ -14,7 +14,9 @@ class QuesController < ApplicationController
     @contribution = @user.contributions.build
     @contributions = home_contributions(current_user).order(created_at: :desc)
     @que = @contribution.build_que(que_params)
-    unless @que.save
+    if @que.save
+      redirect_to home_contributions_path, notice: "queを投稿しました。"
+    else
       render :new
     end
   end

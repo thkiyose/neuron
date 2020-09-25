@@ -1,0 +1,5 @@
+.wrapper.clearfix
+  #contribution_form
+    = render partial: "ques/form", locals: { post: @post }
+  #timeline
+    = render partial: "contributions/index", collection: @contributions, as: :contribution

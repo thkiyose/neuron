@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to home_contributions_path, notice: "postを投稿しました。"
     else
-      render :new
+      render home_contributions_path
     end
   end
 
