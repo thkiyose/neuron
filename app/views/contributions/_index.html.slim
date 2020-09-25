@@ -55,10 +55,11 @@
     p.question
       | Q.
       = contribution.que.question
-    p.que_options
+    .que_options
       - contribution.que.options.each do |option|
-        p
-          = option.option_name
+        = link_to root_path, method: :post, remote: true do
+          p
+            | #{option.option_name}
     p.post_info
       | 投稿日時　
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')

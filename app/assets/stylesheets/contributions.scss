@@ -219,6 +219,21 @@ header {
   width: 80%;
   border-radius: 15px;
 }
+.que_options {
+  text-align: center;
+}
+
+.que_options p {
+  background-color: rgb(180, 242, 238);
+  border-radius: 20px;
+  padding: 5px 0px;
+  opacity: 0.6;
+  color: black;
+}
+
+.que_options p:hover {
+  opacity: 1.0;
+}
 
 #contribution_form {
   width: 80%;
