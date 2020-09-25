@@ -3,4 +3,4 @@
     #result_title
       h2
         = @title
-    = render partial: "contributions/index", locals: { contributions: @searched_contributions }
+    = render partial: "contributions/index", collection: @searched_contributions, as: :contribution

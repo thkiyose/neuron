@@ -6,7 +6,7 @@ html class="#{not_to_scroll}"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body class="#{not_to_scroll}"
     header.clearfix
       p#header_logo

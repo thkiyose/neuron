@@ -29,7 +29,7 @@ ja:
       que:
         question: 質問内容
         que_type: 回答タイプ
-      option:
+      options:
         option_name: 選択肢
     enums:
       que:

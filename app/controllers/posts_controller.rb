@@ -13,10 +13,10 @@ class PostsController < ApplicationController
     @contribution = @user.contributions.build
     @contributions = home_contributions(current_user).order(created_at: :desc)
     @post = @contribution.build_post(post_params)
-    respond_to do |format|
-      if @post.save
-        format.js { render :index }
-      end
+    if @post.save
+      redirect_to home_contributions_path, notice: "postを投稿しました。"
+    else
+      render :new
     end
   end
 

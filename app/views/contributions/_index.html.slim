@@ -1,4 +1,4 @@
-- contributions.each do |contribution|
+- if contribution.post.present?
   .post
     p.post_user_name
       | 投稿者　
@@ -10,15 +10,87 @@
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
     .comments
       div class="show_comments_#{contribution.id}"
-        = render partial: "comments/index", locals: { comments: contribution.comments }
+        p.comment_starts
+          | コメント
+        ul
+          - contribution.comments.each do |comment|
+              li.each_comment
+                p.comment_user_name
+                  = link_to "#{comment.user.profile.screen_name}", profile_path(comment.user.profile.id)
+                p.comment_content
+                  = comment.content
+                p.comment_date
+                  = comment.created_at.strftime('%Y/%m/%d %H:%M')
       div id="comment_form"
         = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
     ul.post_menu
       li
-        = render partial: "favorites/favorites_button", locals: {contribution: contribution}
+        div id="favorites_button_#{contribution.id}"
+          - unless current_user.favorited?(contribution)
+            = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
+              = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
+              = f.submit "お気に入り"
+          - else
+            = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
+              = f.submit "お気に入り解除"
+          #favorites_count
+            = link_to(show_favorited_by_favorite_path(contribution.id)) do
+              = contribution.favorite_users.count
+              | 人のユーザーがお気に入りしました
       - if user_signed_in? && current_user.id == contribution.user.id
         li
           = link_to "編集", edit_post_path(contribution.post.id)
+    .comments_open
+      p
+        | コメント：
+        = contribution.comments.count
+        | 件
+        span#open_message
+          | ▼コメントを表示
+- elsif contribution.que.present?
+  .que
+    p.post_user_name
+      | 投稿者　
+      = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
+    p.question
+      | Q.
+      = contribution.que.question
+    p.que_options
+      - contribution.que.options.each do |option|
+        p
+          = option.option_name
+    p.post_info
+      | 投稿日時　
+      = contribution.created_at.strftime('%Y/%m/%d %H:%M')
+    .comments
+      div class="show_comments_#{contribution.id}"
+        p.comment_starts
+          | コメント
+        ul
+          - contribution.comments.each do |comment|
+              li.each_comment
+                p.comment_user_name
+                  = link_to "#{comment.user.profile.screen_name}", profile_path(comment.user.profile.id)
+                p.comment_content
+                  = comment.content
+                p.comment_date
+                  = comment.created_at.strftime('%Y/%m/%d %H:%M')
+      div id="comment_form"
+        = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
+    ul.post_menu
+      li
+        div id="favorites_button_#{contribution.id}"
+          - unless current_user.favorited?(contribution)
+            = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
+              = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
+              = f.submit "お気に入り"
+          - else
+            = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
+              = f.submit "お気に入り解除"
+          #favorites_count
+            = link_to(show_favorited_by_favorite_path(contribution.id)) do
+              = contribution.favorite_users.count
+              | 人のユーザーがお気に入りしました
     .comments_open
       p
         | コメント：

@@ -18,6 +18,7 @@ gem 'devise-i18n'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'ransack'
 
 group :development, :test do

@@ -8,4 +8,9 @@
   = f.label :question
   = f.text_area :question
   = f.select :que_type, Que.que_types.keys.map {|k| [I18n.t("activerecord.enums.que.que_type.#{k}"), k]}
+  .options_field
+    = f.fields_for :options do |o|
+      span
+        | 選択肢
+      = o.text_field :option_name
   = f.submit "送信"

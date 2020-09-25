@@ -1,7 +1,7 @@
 div id="favorites_button_#{contribution.id}"
   - unless current_user.favorited?(contribution)
     = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
-      = f.hidden_field :contribution_id
+      = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
       = f.submit "お気に入り"
   - else
     = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
