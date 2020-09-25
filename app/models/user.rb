@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_contributions, through: :favorites, source: :contribution
   has_many :comments, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
