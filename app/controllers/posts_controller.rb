@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @post = Post.new
+    respond_to do |format|
+      format.js { render :new }
+    end
+  end
+
   def create
     @user = current_user
     @contribution = @user.contributions.build
@@ -31,7 +38,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content)
     end
-    
+
     def home_contributions(current_user)
       ids = current_user.following.ids << current_user.id
       Contribution.includes(:post, [user: [:profile, :favorites]]).where(user_id: ids)

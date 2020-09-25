@@ -1,3 +1,4 @@
+= link_to "que", new_que_path, remote: true
 = form_with(model:post,remote: true, url:posts_path) do |f|
   - if post.errors.any?
     #error_explanation

@@ -1,0 +1,8 @@
+= link_to "post", new_post_path, remote: true
+= form_with(model:que,remote: true) do |f|
+  - if que.errors.any?
+    #error_explanation
+      - que.errors.full_messages.each do |message|
+        li
+          = message
+  = f.submit "送信"

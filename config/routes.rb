@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       get :news
     end
   end
-  resources :posts, only:%i(create edit update)
+  resources :posts, only:%i(new create edit update)
+  resources :ques, only: %i(new create destroy)
   resources :profiles, only:%i(show edit update)
   resources :user_relations, only: %i(create destroy) do
     member do
