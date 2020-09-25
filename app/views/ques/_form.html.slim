@@ -1,8 +1,11 @@
 = link_to "post", new_post_path, remote: true
-= form_with(model:que,remote: true) do |f|
+= form_with(model: que,remote: true) do |f|
   - if que.errors.any?
     #error_explanation
       - que.errors.full_messages.each do |message|
         li
           = message
+  = f.label :question
+  = f.text_area :question
+  = f.select :que_type, Que.que_types.keys.map {|k| [I18n.t("activerecord.enums.que.que_type.#{k}"), k]}
   = f.submit "送信"
