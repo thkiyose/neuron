@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_082235) do
+ActiveRecord::Schema.define(version: 2020_09_25_005325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2020_09_24_082235) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.bigint "que_id", null: false
+    t.string "option_name", limit: 30, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["que_id"], name: "index_options_on_que_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "contribution_id"
     t.text "content", null: false
@@ -56,6 +64,15 @@ ActiveRecord::Schema.define(version: 2020_09_24_082235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "ques", force: :cascade do |t|
+    t.bigint "contribution_id", null: false
+    t.text "question", null: false
+    t.integer "que_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contribution_id"], name: "index_ques_on_contribution_id"
   end
 
   create_table "user_relations", force: :cascade do |t|
@@ -78,11 +95,25 @@ ActiveRecord::Schema.define(version: 2020_09_24_082235) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "option_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_id", "user_id"], name: "index_votes_on_option_id_and_user_id", unique: true
+    t.index ["option_id"], name: "index_votes_on_option_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "comments", "contributions"
   add_foreign_key "comments", "users"
   add_foreign_key "contributions", "users"
   add_foreign_key "favorites", "contributions"
   add_foreign_key "favorites", "users"
+  add_foreign_key "options", "ques"
   add_foreign_key "posts", "contributions"
   add_foreign_key "profiles", "users"
+  add_foreign_key "ques", "contributions"
+  add_foreign_key "votes", "options"
+  add_foreign_key "votes", "users"
 end
