@@ -65,8 +65,25 @@
               p
                 | #{option.option_name}
       - else
-        p
-          | あああああ
+        - ranks = contribution.que.options.sort {|a,b| b.votes.count <=> a.votes.count}
+        .result
+          h3
+            | 投票結果
+          table
+            - ranks.each_with_index do |rank,i|
+              tr
+                th
+                  span.rank_number
+                    = i + 1
+                  span.rank_option_name
+                    = rank.option_name
+                  - if user_signed_in? && current_user.votes.find_by(option_id: rank.id).present?
+                    span.voted_mark
+                      | ★
+                td
+                  span.rank_votes_count
+                    = rank.votes.count
+                    |票
     p.post_info
       | 投稿日時　
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
@@ -101,6 +118,9 @@
             = link_to(show_favorited_by_favorite_path(contribution.id)) do
               = contribution.favorite_users.count
               | 人のユーザーがお気に入りしました
+        - if user_signed_in? && current_user.id == contribution.user.id
+          li
+            = link_to "削除", contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
     .comments_open
       p
         | コメント：

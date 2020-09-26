@@ -1,2 +1,19 @@
-p
-  | あああああ
+- ranks = contribution.que.options.sort {|a,b| b.votes.count <=> a.votes.count}
+.result
+  h3
+    | 投票結果
+  table
+    - ranks.each_with_index do |rank,i|
+      tr
+        th
+          span.rank_number
+            = i + 1
+          span.rank_option_name
+            = rank.option_name
+          - if user_signed_in? && current_user.votes.find_by(option_id: rank.id).present?
+            span.voted_mark
+              | ★
+        td
+          span.rank_votes_count
+            = rank.votes.count
+            |票
