@@ -275,3 +275,18 @@ footer {
 .delete_link {
   padding-top: 50px;
 }
+
+.back_button {
+  color: white;
+  background-color: rgb(96, 204, 197);
+  padding: 15px;
+  border-radius: 15px;
+  opacity: 0.8;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.back_button_place {
+  width: 80%;
+  float: right;
+}
