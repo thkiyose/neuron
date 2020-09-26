@@ -78,7 +78,7 @@ $ docker-compose run web rake db:migrate
 $ docker-compose up -d
 ```
 
-3. ブラウザにて以下のディレクトリにアクセスします。
+3. ブラウザにて以下のURLにアクセスします。
 ```
 localhost:3000
 ```
