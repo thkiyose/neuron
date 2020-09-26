@@ -35,10 +35,10 @@
             - else
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
                 = f.submit "お気に入り解除"
-          #favorites_count
-            = link_to(show_favorited_by_favorite_path(contribution.id)) do
-              = contribution.favorite_users.count
-              | 人のユーザーがお気に入りしました
+            #favorites_count
+              = link_to(show_favorited_by_favorite_path(contribution.id)) do
+                = contribution.favorite_users.count
+                | 人のユーザーがお気に入りしました
       - if user_signed_in? && current_user.id == contribution.user.id
         li
           = link_to "編集", edit_post_path(contribution.post.id)
@@ -114,10 +114,10 @@
             - else
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
                 = f.submit "お気に入り解除"
-          #favorites_count
-            = link_to(show_favorited_by_favorite_path(contribution.id)) do
-              = contribution.favorite_users.count
-              | 人のユーザーがお気に入りしました
+            #favorites_count
+              = link_to(show_favorited_by_favorite_path(contribution.id)) do
+                = contribution.favorite_users.count
+                | 人のユーザーがお気に入りしました
         - if user_signed_in? && current_user.id == contribution.user.id
           li
             = link_to "削除", contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
