@@ -1,2 +1,6 @@
-span#followed_count
-  = link_to "#{user.followers.count}", show_followers_user_relation_path(user.id)
+- if user.followers.exists?
+  span#followed_count
+    = link_to "#{user.followers.count}", show_followers_user_relation_path(user.id)
+- else
+  span#followed_count
+    | #{user.followers.count}

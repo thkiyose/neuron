@@ -1,5 +1,9 @@
 .wrapper.clearfix
   #timeline
-    h2
-      |お気に入りした投稿
-    = render partial: "contributions/index", collection: @favorite_contributions, as: :contribution
+    - if @favorite_contributions.exists?
+        h2
+          | お気に入りした投稿
+        = render partial: "contributions/index", collection: @favorite_contributions, as: :contribution
+    - else
+      p
+        | お気に入りした投稿はありません。
