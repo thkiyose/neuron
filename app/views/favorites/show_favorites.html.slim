@@ -2,4 +2,4 @@
   #timeline
     h2
       |お気に入りした投稿
-    = render partial: "contributions/index", collections: @favorite_contributions}
+    = render partial: "contributions/index", collection: @favorite_contributions, as: :contribution
