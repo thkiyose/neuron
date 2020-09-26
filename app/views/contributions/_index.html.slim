@@ -21,18 +21,20 @@
                   = comment.content
                 p.comment_date
                   = comment.created_at.strftime('%Y/%m/%d %H:%M')
-      div id="comment_form"
-        = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
+      - if user_signed_in?
+        div id="comment_form"
+          = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
     ul.post_menu
       li
-        div id="favorites_button_#{contribution.id}"
-          - unless current_user.favorited?(contribution)
-            = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
-              = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
-              = f.submit "お気に入り"
-          - else
-            = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
-              = f.submit "お気に入り解除"
+        - if user_signed_in?
+          div id="favorites_button_#{contribution.id}"
+            - unless current_user.favorited?(contribution)
+              = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
+                = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
+                = f.submit "お気に入り"
+            - else
+              = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
+                = f.submit "お気に入り解除"
           #favorites_count
             = link_to(show_favorited_by_favorite_path(contribution.id)) do
               = contribution.favorite_users.count
@@ -56,10 +58,15 @@
       | Q.
       = contribution.que.question
     .que_options
-      - contribution.que.options.each do |option|
-        = link_to root_path, method: :post, remote: true do
-          p
-            | #{option.option_name}
+      - unless already_voted?(contribution)
+        div id="que_options_#{contribution.id}"
+          - contribution.que.options.each do |option|
+            = link_to votes_path(contribution_id: contribution.id, option_id: option.id), method: :post, remote: true do
+              p
+                | #{option.option_name}
+      - else
+        p
+          | あああああ
     p.post_info
       | 投稿日時　
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
@@ -76,18 +83,20 @@
                   = comment.content
                 p.comment_date
                   = comment.created_at.strftime('%Y/%m/%d %H:%M')
-      div id="comment_form"
-        = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
+      - if user_signed_in?
+        div id="comment_form"
+          = render partial: 'comments/form', locals: { comment: contribution.comments.build, contribution: contribution }
     ul.post_menu
       li
-        div id="favorites_button_#{contribution.id}"
-          - unless current_user.favorited?(contribution)
-            = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
-              = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
-              = f.submit "お気に入り"
-          - else
-            = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
-              = f.submit "お気に入り解除"
+        - if user_signed_in?
+          div id="favorites_button_#{contribution.id}"
+            - unless current_user.favorited?(contribution)
+              = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
+                = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
+                = f.submit "お気に入り"
+            - else
+              = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
+                = f.submit "お気に入り解除"
           #favorites_count
             = link_to(show_favorited_by_favorite_path(contribution.id)) do
               = contribution.favorite_users.count

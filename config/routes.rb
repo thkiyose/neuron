@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :posts, only:%i(new create edit update)
   resources :ques, only: %i(new create destroy)
+  resources :votes, only: %i(create)
   resources :profiles, only:%i(show edit update)
   resources :user_relations, only: %i(create destroy) do
     member do
