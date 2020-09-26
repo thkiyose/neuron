@@ -15,6 +15,10 @@ html class="#{not_to_scroll}"
         - if user_signed_in?
           li
             = link_to "ホーム", root_path
+        - else
+          - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
+            li
+              = link_to "トップページ", top_contributions_path
         - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
           li
             = link_to "新着投稿", news_contributions_path
