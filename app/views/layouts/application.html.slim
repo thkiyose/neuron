@@ -7,8 +7,8 @@ html class="#{not_to_scroll}"
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body class="#{not_to_scroll}"
-    header.clearfix
+  body.can_scroll_when_height_is_short class="#{not_to_scroll}"
+    header.clearfix.none
       p#header_logo
         | neuron
       ul.header_menu
@@ -39,6 +39,6 @@ html class="#{not_to_scroll}"
         .button.logout_button
           = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
-    footer class="#{is_fixed_footer}"
+    footer.none class="#{is_fixed_footer}"
       p#footer_print
         | 2020 Haruka Tezuka

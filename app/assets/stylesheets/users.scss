@@ -59,3 +59,10 @@
   width: 80%;
   float: right;
 }
+
+@media (max-height: 500px) {
+   .none { display: none; }
+}
+@media (max-height: 500px) {
+   .can_scroll_when_height_is_short { overflow: scroll}
+}
