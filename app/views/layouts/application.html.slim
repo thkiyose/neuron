@@ -14,10 +14,10 @@ html class="#{not_to_scroll}"
       ul.header_menu
         - if user_signed_in?
           li
-            = link_to "home", root_path
+            = link_to "ホーム", root_path
         - unless controller.action_name == "top" || controller.controller_name == "sessions" || controller.controller_name == "registrations"
           li
-            = link_to "new", news_contributions_path
+            = link_to "新着投稿", news_contributions_path
       #header_search_form
         = search_form_for @search, url: news_contributions_path do |f|
           = f.text_field :post_content_or_que_question_cont, placeholder: "検索するテキストを入力"
