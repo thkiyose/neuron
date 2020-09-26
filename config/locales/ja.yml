@@ -36,8 +36,10 @@ ja:
         que_type:
           options: 選択肢
           answers: 自由回答
-
-
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
 
   date:
     abbr_day_names:

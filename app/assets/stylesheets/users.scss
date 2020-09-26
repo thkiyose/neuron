@@ -5,6 +5,13 @@
   margin: 120px auto;
   padding: 30px 50px 50px 50px;
   border-radius: 20px;
+  min-height: 30%;
+  position:fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+
 }
 
 .container_title {
