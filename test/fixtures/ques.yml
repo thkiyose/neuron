@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contribution: one
+  question: MyText
+  que_type: 1
+
+two:
+  contribution: two
+  question: MyText
+  que_type: 1

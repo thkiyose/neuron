@@ -1,14 +1,22 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @post = Post.new
+    respond_to do |format|
+      format.js { render :new }
+    end
+  end
+
   def create
     @user = current_user
     @contribution = @user.contributions.build
+    @contributions = home_contributions(current_user).order(created_at: :desc)
     @post = @contribution.build_post(post_params)
-    respond_to do |format|
-      if @post.save
-        format.js { render :index }
-      end
+    if @post.save
+      redirect_to home_contributions_path, notice: "postを投稿しました。"
+    else
+      render home_contributions_path
     end
   end
 
@@ -31,4 +39,8 @@ class PostsController < ApplicationController
       params.require(:post).permit(:content)
     end
 
+    def home_contributions(current_user)
+      ids = current_user.following.ids << current_user.id
+      Contribution.includes(:post, [user: [:profile, :favorites]]).where(user_id: ids)
+    end
 end

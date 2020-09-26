@@ -5,13 +5,16 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
   resources :contributions, only:%i(destroy show) do
+    resources :comments, only: %i(create)
     collection do
       get :top
       get :home
       get :news
     end
   end
-  resources :posts, only:%i(create edit update)
+  resources :posts, only:%i(new create edit update)
+  resources :ques, only: %i(new create destroy)
+  resources :votes, only: %i(create)
   resources :profiles, only:%i(show edit update)
   resources :user_relations, only: %i(create destroy) do
     member do

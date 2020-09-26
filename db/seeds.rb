@@ -1,4 +1,5 @@
 content_sample = ["テストをする","シードデータを作る","Railsを楽しむ"]
+question_sample = ["テスト結果は良好ですか？","正しく動いていますか？","seedデータが存在していますか？"]
 
 user1 = User.create(user_name:"利用者1",email:"test1@test.com",password:"password",password_confirmation:"password",admin:false)
 user2 = User.create(user_name:"利用者2",email:"test2@test.com",password:"password",password_confirmation:"password",admin:false)
@@ -16,5 +17,15 @@ end
   users.each do |user|
     contribution = user.contributions.create
     contribution.create_post(content:"#{content_sample.sample}#{n}")
+  end
+end
+
+5.times do |n|
+  users.each do |user|
+    contribution = user.contributions.create
+    que = contribution.create_que(question:"#{question_sample.sample}", que_type: 0)
+    4.times do |n|
+      que.options.create(option_name: "回答#{n}")
+    end
   end
 end

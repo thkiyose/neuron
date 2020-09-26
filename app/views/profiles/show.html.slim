@@ -21,4 +21,4 @@
     p
       = @profile.introduction
     .user_contribution_log
-      = render partial: "contributions/index", locals: { contributions: @profile.user.contributions }
+      = render partial: "contributions/index", collection: @profile.user.contributions.order(created_at: :desc), as: :contribution
