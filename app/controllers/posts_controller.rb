@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @contributions = home_contributions(current_user).order(created_at: :desc)
     @post = @contribution.build_post(post_params)
     if @post.save
-      redirect_to home_contributions_path, notice: "postを投稿しました。"
+      redirect_to home_contributions_path, notice: I18n.t("activerecord.flash.post.create")
     else
       render home_contributions_path
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to root_path
-      flash[:notice] = "postを編集しました。"
+      flash[:notice] = I18n.t("activerecord.flash.post.edit")
     else
       render :edit
     end

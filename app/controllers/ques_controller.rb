@@ -15,7 +15,7 @@ class QuesController < ApplicationController
     @contributions = home_contributions(current_user).order(created_at: :desc)
     @que = @contribution.build_que(que_params)
     if @que.save
-      redirect_to home_contributions_path, notice: "queを投稿しました。"
+      redirect_to home_contributions_path, notice: I18n.t("activerecord.flash.que.create")
     else
       render :new
     end

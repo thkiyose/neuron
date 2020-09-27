@@ -18,7 +18,7 @@ class ContributionsController < ApplicationController
     authenticate_user!
     @contribution = Contribution.find(params[:id])
     @contribution.destroy
-    redirect_to root_path, notice: "投稿を削除しました。"
+    redirect_to root_path, notice: I18n.t("activerecord.flash.contribution.destroy")
   end
 
   private

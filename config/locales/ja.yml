@@ -22,7 +22,7 @@ ja:
       post:
         content: 内容
       profile:
-        screen_name: 公開ユーザー名
+        screen_name: ユーザー名
         introduction: 自己紹介
       comment:
         content: コメント内容
@@ -36,10 +36,30 @@ ja:
         que_type:
           options: 選択肢
           answers: 自由回答
-  helpers:
-    submit:
-      create: 登録する
-      update: 更新する
+    flash:
+      contribution:
+        destroy: 投稿を削除しました。
+      post:
+        create: postを投稿しました。
+        edit: postを編集しました。
+      que:
+        create: queを投稿しました。
+      profile:
+        update: プロフィールを更新しました。
+    views:
+      home: ホーム
+      news: 新着投稿
+      top: トップページ
+      profile: プロフィール
+      favorites: お気に入りした投稿
+      sign_up: サインアップ
+      log_in: ログイン
+      log_out: ログアウト
+      password: パスワード
+      created_at: 投稿日時
+      user_liked: 人のユーザーがお気に入りしました
+      destroy: 削除
+      edit: 編集
 
   date:
     abbr_day_names:
@@ -176,9 +196,17 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      user:
+        create: ユーザー登録
+        submit: 保存
+        update: 更新
+      comment:
+        create: コメント
+        update: 更新
+      favorite:
+        create: お気に入り
+        destroy: お気に入り解除
+        update: お気に入り解除
   number:
     currency:
       format:

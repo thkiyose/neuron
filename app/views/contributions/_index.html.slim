@@ -1,17 +1,17 @@
 - if contribution.post.present?
   .post
     p.post_user_name
-      | 投稿者　
+      = I18n.t("activerecord.attributes.profile.screen_name")
       = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
     p.post_content
       = contribution.post.content
     p.post_info
-      | 投稿日時　
+      = I18n.t("activerecord.views.created_at")
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
     .comments
       div class="show_comments_#{contribution.id}"
         p.comment_starts
-          | コメント
+          = I18n.t("activerecord.models.comments")
         ul
           - contribution.comments.each do |comment|
               li.each_comment
@@ -31,21 +31,21 @@
             - unless current_user.favorited?(contribution)
               = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
                 = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
-                = f.submit "お気に入り"
+                = f.submit
             - else
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
-                = f.submit "お気に入り解除"
+                = f.submit
             #favorites_count
               - if contribution.favorite_users.present?
                 = link_to(show_favorited_by_favorite_path(contribution.id)) do
                   = contribution.favorite_users.count
-                  | 人のユーザーがお気に入りしました
+                  = I18n.t("activerecord.views.user_liked")
               - else
                 = contribution.favorite_users.count
-                | 人のユーザーがお気に入りしました
+                = I18n.t("activerecord.views.user_liked")
       - if user_signed_in? && current_user.id == contribution.user.id
         li
-          = link_to "編集", edit_post_path(contribution.post.id)
+          = link_to I18n.t("activerecord.views.edit"), edit_post_path(contribution.post.id)
     .comments_open
       p
         | コメント：
@@ -56,7 +56,7 @@
 - elsif contribution.que.present?
   .que
     p.post_user_name
-      | 投稿者　
+      = I18n.t("activerecord.attributes.profile.screen_name")
       = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
     p.question
       | Q.
@@ -89,12 +89,12 @@
                     = rank.votes.count
                     |票
     p.post_info
-      | 投稿日時　
+      = I18n.t("activerecord.views.created_at")
       = contribution.created_at.strftime('%Y/%m/%d %H:%M')
     .comments
       div class="show_comments_#{contribution.id}"
         p.comment_starts
-          | コメント
+          = I18n.t("activerecord.models.comments")
         ul
           - contribution.comments.each do |comment|
               li.each_comment
@@ -114,21 +114,21 @@
             - unless current_user.favorited?(contribution)
               = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
                 = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
-                = f.submit "お気に入り"
+                = f.submit
             - else
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
-                = f.submit "お気に入り解除"
+                = f.submit
             #favorites_count
               - if contribution.favorite_users.present?
                 = link_to(show_favorited_by_favorite_path(contribution.id)) do
                   = contribution.favorite_users.count
-                  | 人のユーザーがお気に入りしました
+                  = I18n.t("activerecord.views.user_liked")
               - else
                 = contribution.favorite_users.count
-                | 人のユーザーがお気に入りしました
+                = I18n.t("activerecord.views.user_liked")
         - if user_signed_in? && current_user.id == contribution.user.id
           li
-            = link_to "削除", contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
+            = link_to I18n.t("activerecord.views.destroy"), contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
     .comments_open
       p
         | コメント：

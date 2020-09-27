@@ -1,11 +1,11 @@
 - unless current_user.favorited?(contribution)
   = form_with(model: current_user.favorites.build(contribution_id: contribution.id)) do |f|
     = f.hidden_field :contribution_id, id: "contribution_id_#{contribution.id}"
-    = f.submit "お気に入り"
+    = f.submit
 - else
   = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
-    = f.submit "お気に入り解除"
+    = f.submit
 #favorites_count
   = link_to(show_favorited_by_favorite_path(contribution.id)) do
     = contribution.favorite_users.count
-    | 人のユーザーがお気に入りしました
+    = I18n.t("activerecord.views.user_liked")

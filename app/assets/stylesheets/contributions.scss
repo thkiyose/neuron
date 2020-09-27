@@ -147,6 +147,9 @@ header {
   border-left: solid 1px rgb(138, 138, 138);
   text-align: center;
 }
+#result_title {
+  text-align: center;
+}
 
 #top_copy {
   color: white;
@@ -279,14 +282,19 @@ footer {
 .back_button {
   color: white;
   background-color: rgb(96, 204, 197);
-  padding: 15px;
-  border-radius: 15px;
   opacity: 0.8;
   display: inline-block;
   font-size: 0.8rem;
+  padding: 5px;
+  margin-left: 90px;
+}
+
+.back_button a {
+  color: white;
 }
 
 .back_button_place {
   width: 80%;
   float: right;
+  padding-top: 20px;
 }

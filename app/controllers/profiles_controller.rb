@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path, notice: "プロフィールを更新しました。"
+      redirect_to profile_path, notice: I18n.t("activerecord.flash.profile.update")
     else
       render :edit
     end
