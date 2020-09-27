@@ -1,9 +1,11 @@
-= link_to "que作成フォームに切り替え", new_que_path, remote: true
-= form_with(model:post, local: true, url:posts_path) do |f|
-  - if post.errors.any?
-    #error_explanation
-      - post.errors.full_messages.each do |message|
-        li
-          = message
+- if post.errors.any?
+  #error_explanation
+    - post.errors.full_messages.each do |message|
+      li
+        = message
+= form_with(model:post, local: true, url:posts_path, class:"clearfix") do |f|
   = f.text_area :content, placeholder: I18n.t("activerecord.views.post_placeholder")
-  = f.submit "送信"
+  p.contribution_button
+    = f.submit "送信"
+p.form_change
+  = link_to "que作成フォームに切り替え", new_que_path, remote: true

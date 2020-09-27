@@ -1,21 +1,22 @@
-= link_to "post作成フォームに切り替え", new_post_path, remote: true
-= form_with(model: @que, local: true) do |f|
+= form_with(model: @que, local: true, class:"clearfix") do |f|
   - if @que.errors.any?
     #error_explanation
       - @que.errors.full_messages.each do |message|
         li
           = message
   = f.label :question
-  = f.text_area :question, placeholder: I18n.t("activerecord.views.que_placeholder")
-  = f.label :que_type
-  = f.select :que_type, Que.que_types.keys.map {|k| [I18n.t("activerecord.enums.que.que_type.#{k}"), k]}
+  = f.text_area :question, placeholder: I18n.t("activerecord.views.que_placeholder"), id: "que_form"
+  .que_type
+    = f.label :que_type
+    = f.select :que_type, Que.que_types.keys.map {|k| [I18n.t("activerecord.enums.que.que_type.#{k}"), k]}
   .options_field
     span
       = I18n.t("activerecord.attributes.options.option_name")
       | (質問に対しユーザーが選択し回答します)
     .options
       = f.fields_for :options do |o|
-        - n = 0
-        - n += 1
         = o.text_field :option_name, placeholder: I18n.t("activerecord.attributes.options.option_name")
-  = f.submit
+  p.que_submit_button
+    = f.submit
+p.form_change
+  = link_to "post作成フォームに切り替え", new_post_path, remote: true

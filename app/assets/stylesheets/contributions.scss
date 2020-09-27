@@ -207,12 +207,22 @@ header {
   float: right;
 }
 
+.form_change {
+  float: left;
+}
+
 .post {
   background-color: white;
   padding: 20px;
   margin: 30px auto;
   width: 80%;
   border-radius: 15px;
+}
+
+.options_field {
+  width: 70%;
+  margin-left: 10%;
+  float:left;
 }
 
 .que {
@@ -242,8 +252,17 @@ header {
   width: 80%;
   float: right;
   padding-top: 50px;
-  text-align: center;
   resize: none;
+}
+
+#contribution_form #error_explanation {
+  text-align: center;
+}
+
+.form_change {
+  width: 70%;
+  margin-left: 10%;
+  margin-top: 0px;
 }
 
 #contribution_form textarea {
@@ -252,7 +271,51 @@ header {
   border: solid 2px rgb(96, 204, 197);
   padding: 10px;
   border-radius: 15px;
+  margin-left: 10%;
+  margin-right: 3%;
+}
+
+#contribution_form label {
+  width: 70%;
+  margin-left: 11%;
+  margin-bottom: 10px;
+}
+
+.contribution_button {
+  display: inline-block;
+  padding-top: 50px;
+}
+
+.contribution_button input {
+  display: inline-block;
+  background-color: rgb(96, 204, 197);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+}
+
+.que_submit_button {
+  display: inline-block;
+}
+
+.que_submit_button input {
+  display: inline-block;
+  background-color: rgb(96, 204, 197);
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+}
+
+#que_form {
+  float: none;
   margin: 0 auto;
+}
+
+.que_type {
+  width: 100%;
 }
 
 footer {
@@ -297,4 +360,8 @@ footer {
   width: 80%;
   float: right;
   padding-top: 20px;
+}
+
+.field_with_errors {
+  display: contents;
 }

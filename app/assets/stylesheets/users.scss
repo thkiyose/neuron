@@ -42,9 +42,12 @@
 }
 
 .submit_button input {
+  display: inline-block;
   background-color: rgb(96, 204, 197);
   margin-top: 20px;
-  width: 50%;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
   color: white;
 }
 
