@@ -1,10 +1,10 @@
 = form_with(model: current_user.comments.build(contribution_id: contribution.id), url:contribution_comments_path(contribution.id)) do |form|
-  - if comment.errors.any?
-    #error_explanation
-      ul
-      - comment.errors.full_messages.each do |message|
-        li
-          = message
+  div id="comment_errors_#{contribution.id}"
+    - if comment.errors.any?
+        ul
+        - comment.errors.full_messages.each do |message|
+          li
+            = message
   = form.hidden_field :contribution_id, id: "to_comment_id_#{contribution.id}"
   = form.text_area :content, id: "comment_textarea_#{contribution.id}"
   = form.submit

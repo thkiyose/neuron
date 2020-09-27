@@ -1,9 +1,10 @@
 = form_with(model: @que, local: true, class:"clearfix") do |f|
   - if @que.errors.any?
     #error_explanation
-      - @que.errors.full_messages.each do |message|
-        li
-          = message
+      ul
+        - @que.errors.full_messages.each do |message|
+          li
+            = message
   = f.label :question
   = f.text_area :question, placeholder: I18n.t("activerecord.views.que_placeholder"), id: "que_form"
   .que_type

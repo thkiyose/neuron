@@ -1,8 +1,9 @@
 - if post.errors.any?
   #error_explanation
-    - post.errors.full_messages.each do |message|
-      li
-        = message
+    ul
+      - post.errors.full_messages.each do |message|
+        li
+          = message
 = form_with(model:post, local: true, url:posts_path, class:"clearfix") do |f|
   = f.text_area :content, placeholder: I18n.t("activerecord.views.post_placeholder")
   p.contribution_button

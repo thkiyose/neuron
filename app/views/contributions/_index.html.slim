@@ -1,4 +1,4 @@
-- if contribution.post.present?
+- unless contribution.post.nil?
   .post
     p.post_user_name
       = I18n.t("activerecord.attributes.profile.screen_name")
@@ -36,12 +36,12 @@
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
                 = f.submit
             #favorites_count
-              - if contribution.favorite_users.present?
+              - if contribution.favorite_users.exists?
                 = link_to(show_favorited_by_favorite_path(contribution.id)) do
-                  = contribution.favorite_users.count
+                  = contribution.favorite_users.size
                   = I18n.t("activerecord.views.user_liked")
               - else
-                = contribution.favorite_users.count
+                = contribution.favorite_users.size
                 = I18n.t("activerecord.views.user_liked")
       - if user_signed_in? && current_user.id == contribution.user.id
         li
@@ -50,11 +50,11 @@
       div id="comments_count_#{contribution.id}"
         p
           | コメント：
-          = contribution.comments.count
+          = contribution.comments.size
           | 件
           span#open_message
             | ▼コメントを表示
-- elsif contribution.que.present?
+- else
   .que
     p.post_user_name
       = I18n.t("activerecord.attributes.profile.screen_name")
@@ -87,7 +87,7 @@
                       | ★
                 td
                   span.rank_votes_count
-                    = rank.votes.count
+                    = rank.votes.size
                     |票
     p.post_info
       = I18n.t("activerecord.views.created_at")
@@ -120,12 +120,12 @@
               = form_with(model: current_user.favorites.find_by(contribution_id: contribution.id), method: :delete ) do |f|
                 = f.submit
             #favorites_count
-              - if contribution.favorite_users.present?
+              - if contribution.favorite_users.exists?
                 = link_to(show_favorited_by_favorite_path(contribution.id)) do
-                  = contribution.favorite_users.count
+                  = contribution.favorite_users.size
                   = I18n.t("activerecord.views.user_liked")
               - else
-                = contribution.favorite_users.count
+                = contribution.favorite_users.size
                 = I18n.t("activerecord.views.user_liked")
         - if user_signed_in? && current_user.id == contribution.user.id
           li
@@ -134,7 +134,7 @@
       div id="comments_count_#{contribution.id}"
         p
           | コメント：
-          = contribution.comments.count
+          = contribution.comments.size
           | 件
           span#open_message
             | ▼コメントを表示

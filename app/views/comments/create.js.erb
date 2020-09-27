@@ -1,3 +1,4 @@
 $("#comments_count_"+"<%= @contribution.id %>").html("<p>コメント：<%= @contribution.comments.count %>件<span id=\"open_message\">▼コメントを表示</span></p>")
 $(".show_comments_"+"<%= @contribution.id %>").html("<%= j(render 'comments/index', { comments: @comments }) %>")
+$("#comment_errors_"+"<%= @contribution.id %>").html("<%= j(render 'contributions/error', { instance: @comment }) %>")
 $("#comment_textarea_"+"<%= @contribution.id %>").val('')

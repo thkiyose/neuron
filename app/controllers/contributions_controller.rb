@@ -24,6 +24,7 @@ class ContributionsController < ApplicationController
   private
   def home_contributions(current_user)
     ids = current_user.following.ids << current_user.id
-    Contribution.all.includes(:post, [que: :options], [user: [:profile, :favorites, :comments]]).where(user_id: ids)
+    # Contribution.all.includes(:post, [que: :options], [user: [:profile, :favorites, :comments]]).where(user_id: ids)
+      Contribution.includes(:post,:favorites,:comments,:user,[que: [options: :votes]]).where(user_id: ids)
   end
 end
