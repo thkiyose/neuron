@@ -47,12 +47,13 @@
         li
           = link_to I18n.t("activerecord.views.edit"), edit_post_path(contribution.post.id)
     .comments_open
-      p
-        | コメント：
-        = contribution.comments.count
-        | 件
-        span#open_message
-          | ▼コメントを表示
+      div id="comments_count_#{contribution.id}"
+        p
+          | コメント：
+          = contribution.comments.count
+          | 件
+          span#open_message
+            | ▼コメントを表示
 - elsif contribution.que.present?
   .que
     p.post_user_name
@@ -130,9 +131,10 @@
           li
             = link_to I18n.t("activerecord.views.destroy"), contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
     .comments_open
-      p
-        | コメント：
-        = contribution.comments.count
-        | 件
-        span#open_message
-          | ▼コメントを表示
+      div id="comments_count_#{contribution.id}"
+        p
+          | コメント：
+          = contribution.comments.count
+          | 件
+          span#open_message
+            | ▼コメントを表示
