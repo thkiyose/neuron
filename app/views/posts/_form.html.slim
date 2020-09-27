@@ -5,5 +5,5 @@
       - post.errors.full_messages.each do |message|
         li
           = message
-  = f.text_area :content
+  = f.text_area :content, placeholder: I18n.t("activerecord.views.post_placeholder")
   = f.submit "送信"

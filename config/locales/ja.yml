@@ -60,6 +60,8 @@ ja:
       user_liked: 人のユーザーがお気に入りしました
       destroy: 削除
       edit: 編集
+      post_placeholder: 自由な内容を発信しましょう。
+      que_placeholder: 質問したいことは何ですか？
 
   date:
     abbr_day_names:
@@ -205,8 +207,13 @@ ja:
         update: 更新
       favorite:
         create: お気に入り
-        destroy: お気に入り解除
         update: お気に入り解除
+      post:
+        create: 投稿
+        update: 更新
+      que:
+        create: 投稿
+        update: 更新
   number:
     currency:
       format:

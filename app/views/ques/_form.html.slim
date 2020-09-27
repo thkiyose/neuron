@@ -6,11 +6,16 @@
         li
           = message
   = f.label :question
-  = f.text_area :question
+  = f.text_area :question, placeholder: I18n.t("activerecord.views.que_placeholder")
+  = f.label :que_type
   = f.select :que_type, Que.que_types.keys.map {|k| [I18n.t("activerecord.enums.que.que_type.#{k}"), k]}
   .options_field
-    = f.fields_for :options do |o|
-      span
-        | 選択肢
-      = o.text_field :option_name
-  = f.submit "送信"
+    span
+      = I18n.t("activerecord.attributes.options.option_name")
+      | (質問に対しユーザーが選択し回答します)
+    .options
+      = f.fields_for :options do |o|
+        - n = 0
+        - n += 1
+        = o.text_field :option_name, placeholder: I18n.t("activerecord.attributes.options.option_name")
+  = f.submit
