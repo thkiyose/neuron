@@ -255,6 +255,29 @@ header {
   resize: none;
 }
 
+#edit_form {
+  width: 80%;
+  float: right;
+  padding-top: 50px;
+  resize: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#edit_form textarea {
+  width: 70%;
+  height: 100px;
+  margin: 0 auto;
+  border: solid 2px rgb(96, 204, 197);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#edit_form h2{
+  text-align: center;
+}
+
+
 #contribution_form #error_explanation {
   text-align: center;
 }
@@ -340,6 +363,7 @@ footer {
 
 .delete_link {
   padding-top: 50px;
+  text-align: center;
 }
 
 .back_button {

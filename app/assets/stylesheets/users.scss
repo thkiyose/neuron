@@ -41,6 +41,10 @@
   width: 100%;
 }
 
+.submit_button {
+  text-align: center;
+}
+
 .submit_button input {
   display: inline-block;
   background-color: rgb(96, 204, 197);
@@ -49,6 +53,7 @@
   border-radius: 15px;
   border: none;
   color: white;
+  width: 30%;
 }
 
 .shared_link {
