@@ -1,7 +1,7 @@
 .wrapper.not_scroll
   .container
     h2.container_title.none
-      = I18n.t("activerecord.views.sign_up)
+      = I18n.t("activerecord.views.sign_up")
     .forms
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "users/shared/error_messages", resource: resource
@@ -12,7 +12,7 @@
         br
         = f.email_field :email, autocomplete: "email"
         - if @minimum_password_length
-            = I18n.t("activerecord.views.password)
+            = I18n.t("activerecord.views.password")
             | （
             = @minimum_password_length
             | 文字以上）
