@@ -50,7 +50,7 @@
       div id="comments_count_#{contribution.id}"
         p
           | コメント：
-          = contribution.comments.size
+          = contribution.comments.count
           | 件
           span#open_message
             | ▼コメントを表示
@@ -134,7 +134,7 @@
       div id="comments_count_#{contribution.id}"
         p
           | コメント：
-          = contribution.comments.size
+          = contribution.comments.count
           | 件
           span#open_message
             | ▼コメントを表示
