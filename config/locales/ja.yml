@@ -19,6 +19,7 @@ ja:
       user:
         user_name: 氏名
         admin: 管理者権限
+        password: パスワード
       post:
         content: 内容
       profile:

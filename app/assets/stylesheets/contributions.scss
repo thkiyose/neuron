@@ -23,6 +23,7 @@ header {
   position: fixed;
   z-index: 99;
   opacity: 0.9;
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
 }
 
 #header_logo {
@@ -217,6 +218,7 @@ header {
   margin: 30px auto;
   width: 80%;
   border-radius: 15px;
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
 }
 
 .options_field {
@@ -231,6 +233,7 @@ header {
   margin: 30px auto;
   width: 80%;
   border-radius: 15px;
+  box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
 }
 .que_options {
   text-align: center;
@@ -348,7 +351,7 @@ footer {
   height: 50px;
   width: 100%;
   position:sticky;
-  z-index: 20;
+  z-index: 55;
 }
 
 .fixed {
