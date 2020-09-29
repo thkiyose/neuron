@@ -5,6 +5,12 @@ FactoryBot.define do
     password { "password" }
     password_confirmation { "password" }
   end
+  factory :user2 do
+    user_name { "test2" }
+    email { "user2@email.com" }
+    password { "password" }
+    password_confirmation { "password" }
+  end
   factory :contribution do
     association :user
   end
