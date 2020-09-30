@@ -4,7 +4,7 @@
       | ユーザープロフィール
     - if user_signed_in? && current_user.id == @profile.user.id
       p
-        = link_to "編集", edit_profile_path(@profile.id)
+        = link_to I18n.t("activerecord.views.edit"), edit_profile_path(@profile.id)
     p
       = @profile.screen_name
     - if user_signed_in? && current_user != @profile.user
