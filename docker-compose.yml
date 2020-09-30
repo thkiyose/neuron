@@ -5,9 +5,7 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=password
-    ports:
-      - "5432:5432"
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
   selenium_chrome:
     image: selenium/standalone-chrome-debug
     logging:
