@@ -45,7 +45,7 @@
                 = I18n.t("activerecord.views.user_liked")
       - if user_signed_in? && current_user.id == contribution.user.id
         li
-          = link_to I18n.t("activerecord.views.edit"), edit_post_path(contribution.post.id)
+          = link_to I18n.t("activerecord.views.edit"), edit_post_path(contribution.post.id), class:"edit_link"
     .comments_open
       div id="comments_count_#{contribution.id}"
         p
@@ -59,7 +59,7 @@
     p.post_user_name
       = I18n.t("activerecord.attributes.profile.screen_name")
       = link_to "#{contribution.user.profile.screen_name}" , profile_path(contribution.user.profile.id)
-    p.question
+    p.post_content
       | Q.
       = contribution.que.question
     .que_options
@@ -129,7 +129,7 @@
                 = I18n.t("activerecord.views.user_liked")
         - if user_signed_in? && current_user.id == contribution.user.id
           li
-            = link_to I18n.t("activerecord.views.destroy"), contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"}
+            = link_to I18n.t("activerecord.views.destroy"), contribution_path(contribution.id), method: :delete, data: { confirm: "queを削除しますか？"},class:"delete_link"
     .comments_open
       div id="comments_count_#{contribution.id}"
         p
